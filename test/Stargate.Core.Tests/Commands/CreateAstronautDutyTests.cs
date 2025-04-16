@@ -10,7 +10,7 @@ using Stargate.Testing.Logging;
 
 namespace Stargate.Core.Tests.Commands;
 
-public class CreateAstronaughtDutyTests
+public class CreateAstronautDutyTests
 {
     [Fact]
     public async Task CanAddAstronautDuty()
