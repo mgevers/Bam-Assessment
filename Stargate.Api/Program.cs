@@ -77,7 +77,7 @@ namespace Stargate.Api
 
         private static async Task EnsureDatabaseCreated(IDbContextFactory<StargateDbContext> dbContextFactory)
         {
-            var dbContext = await dbContextFactory.CreateDbContextAsync();
+            using var dbContext = await dbContextFactory.CreateDbContextAsync();
 
             await dbContext.Database.EnsureCreatedAsync();
             await dbContext.Database.MigrateAsync();
