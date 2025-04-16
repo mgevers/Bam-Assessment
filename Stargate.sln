@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stargate.Api", "Stargate.Api\Stargate.Api.csproj", "{57C841CE-CDE0-461A-A64F-D50E20B8356A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stargate.Core", "Stargate.Core\Stargate.Core.csproj", "{F880A8DA-B67A-4B49-80E9-C00F91671E19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stargate.Persistence", "Stargate.Persistence\Stargate.Persistence.csproj", "{B972C23D-8C32-43AF-9C0C-1216568E0466}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stargate.Core.Domain", "Stargate.Core.Domain\Stargate.Core.Domain.csproj", "{44494EBC-4404-4C0D-A549-39572D652B95}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57C841CE-CDE0-461A-A64F-D50E20B8356A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C841CE-CDE0-461A-A64F-D50E20B8356A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C841CE-CDE0-461A-A64F-D50E20B8356A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C841CE-CDE0-461A-A64F-D50E20B8356A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F880A8DA-B67A-4B49-80E9-C00F91671E19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F880A8DA-B67A-4B49-80E9-C00F91671E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F880A8DA-B67A-4B49-80E9-C00F91671E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F880A8DA-B67A-4B49-80E9-C00F91671E19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B972C23D-8C32-43AF-9C0C-1216568E0466}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B972C23D-8C32-43AF-9C0C-1216568E0466}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B972C23D-8C32-43AF-9C0C-1216568E0466}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B972C23D-8C32-43AF-9C0C-1216568E0466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44494EBC-4404-4C0D-A549-39572D652B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44494EBC-4404-4C0D-A549-39572D652B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44494EBC-4404-4C0D-A549-39572D652B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44494EBC-4404-4C0D-A549-39572D652B95}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {039ED028-B37A-497D-8233-849DE3AEC974}
+	EndGlobalSection
+EndGlobal

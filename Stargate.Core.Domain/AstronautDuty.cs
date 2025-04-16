@@ -1,0 +1,37 @@
+﻿namespace Stargate.Core.Domain;
+
+public class AstronautDuty
+{
+    public const string Retired = "RETIRED";
+
+    private AstronautDuty() { }
+
+    public AstronautDuty(
+        Person person,
+        string rank,
+        string dutyTitle,
+        DateTime dutyStartDate,
+        DateTime? dutyEndDate)
+    {
+        Person = person;
+        PersonId = person.Id;
+        Rank = rank;
+        DutyTitle = dutyTitle;
+        DutyStartDate = dutyStartDate;
+        DutyEndDate = dutyEndDate;
+    }
+
+    public int Id { get; private set; }
+
+    public int PersonId { get; private set; }
+
+    public string Rank { get; private set; } = string.Empty;
+
+    public string DutyTitle { get; private set; } = string.Empty;
+
+    public DateTime DutyStartDate { get; private set; }
+
+    public DateTime? DutyEndDate { get; set; }
+
+    public virtual Person Person { get; set; } = null!;
+}
