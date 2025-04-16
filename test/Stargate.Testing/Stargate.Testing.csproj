@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Moq" />
     <PackageReference Include="Newtonsoft.Json" />
 	  <PackageReference Include="xunit" />
 	  <PackageReference Include="xunit.runner.visualstudio">
@@ -17,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Stargate.Core.Domain\Stargate.Core.Domain.csproj" />
+    <ProjectReference Include="..\..\Stargate.Core\Stargate.Core.csproj" />
   </ItemGroup>
 
 </Project>

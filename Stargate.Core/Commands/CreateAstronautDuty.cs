@@ -39,7 +39,7 @@ public class CreateAstronautDutyCommandHandler : IRequestHandler<CreateAstronaut
             _logger.LogError(
                 "Failed to commit transaction for creating person {Name}: {Error}",
                 request.Name,
-                string.Concat(personResult.Errors, ","));
+                string.Join(",", personResult.Errors));
 
             return personResult.AsTypedError<Person, int>();
         }
@@ -55,7 +55,7 @@ public class CreateAstronautDutyCommandHandler : IRequestHandler<CreateAstronaut
             _logger.LogError(
                 "Failed to commit transaction for creating person {Name}: {Error}",
                 request.Name,
-                string.Concat(personResult.Errors, ","));
+                string.Join(",", addDutyResult.Errors));
             return addDutyResult.AsTypedError<int>();
         }
 
@@ -66,7 +66,7 @@ public class CreateAstronautDutyCommandHandler : IRequestHandler<CreateAstronaut
             _logger.LogError(
                 "Failed to commit transaction for creating person {Name}: {Error}",
                 request.Name,
-                string.Concat(personResult.Errors, ","));
+                string.Join(",", commitResult.Errors));
             return commitResult.AsTypedError<int>();
         }
 

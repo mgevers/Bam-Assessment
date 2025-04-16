@@ -1,6 +1,8 @@
-﻿namespace Stargate.Core.Domain;
+﻿using CSharpFunctionalExtensions;
 
-public class AstronautDetail
+namespace Stargate.Core.Domain;
+
+public class AstronautDetail : Entity<int>, IDataModel
 {
     private AstronautDetail() { }
 
@@ -16,8 +18,6 @@ public class AstronautDetail
         CurrentDutyTitle = currentDutyTitle;
         CareerStartDate = careerStartDate;
     }
-
-    public int Id { get; private set; }
 
     public int PersonId { get; private set; }
 

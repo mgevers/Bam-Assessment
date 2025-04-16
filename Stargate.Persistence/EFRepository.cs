@@ -2,18 +2,35 @@
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Stargate.Core.Contracts;
+using Stargate.Core.Domain;
 using Stargate.Persistence.Sql;
 
 namespace Stargate.Persistence;
 
 public class EFRepository<TEntity> : IRepository<TEntity>
-    where TEntity : class
+    where TEntity : class, IDataModel
 {
     protected readonly StargateDbContext dbContext;
 
     public EFRepository(StargateDbContext dbContext)
     {
         this.dbContext = dbContext;
+    }
+
+    public async Task<Result<TEntity>> GetByIdAsync(int id, CancellationToken cancellation = default)
+    {
+        try
+        {
+            var entity = await dbContext.Set<TEntity>().FindAsync(id, cancellation);
+
+            return entity == null
+                ? Result<TEntity>.NotFound($"{typeof(TEntity).Name} with ID {id} not found.")
+                : Result.Success(entity);
+        }
+        catch (SqlException ex)
+        {
+            return Result.CriticalError(ex.Message);
+        }
     }
 
     public void Add(TEntity entity)

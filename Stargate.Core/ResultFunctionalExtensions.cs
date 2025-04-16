@@ -24,7 +24,7 @@ public static class ResultFunctionalExtensions
             case ResultStatus.Forbidden:
                 return Result.Forbidden(errors);
             case ResultStatus.Invalid:
-                return Result.Invalid(new ValidationError(string.Concat(errors, ",")));
+                return Result.Invalid(new ValidationError(string.Join(",", errors)));
             case ResultStatus.NotFound:
                 return Result.NotFound(errors);
             case ResultStatus.Unauthorized:
@@ -56,8 +56,8 @@ public static class ResultFunctionalExtensions
             case ResultStatus.Forbidden:
                 return Result.Forbidden(errors);
             case ResultStatus.Invalid:
-                return Result.Invalid(new ValidationError(string.Concat(errors, ",")));
-            case ResultStatus.NotFound:
+                return Result.Invalid(new ValidationError(string.Join(",", errors)));
+            case ResultStatus.NotFound: 
                 return Result.NotFound(errors);
             case ResultStatus.Unauthorized:
                 return Result.Unauthorized(errors);

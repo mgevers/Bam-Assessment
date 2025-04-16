@@ -36,7 +36,7 @@ public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, R
             _logger.LogError(
                 "Failed to commit transaction for creating person {Name}: {Error}",
                 request.Name,
-                string.Concat(commitResult.Errors, ","));
+                string.Join(",", commitResult.Errors));
 
             return commitResult.AsTypedError<int>();
         }

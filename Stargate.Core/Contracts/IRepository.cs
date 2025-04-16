@@ -1,10 +1,12 @@
 ﻿using Ardalis.Result;
+using Stargate.Core.Domain;
 
 namespace Stargate.Core.Contracts;
 
 public interface IRepository<TEntity>
-    where TEntity : class
+    where TEntity : class, IDataModel
 {
+    Task<Result<TEntity>> GetByIdAsync(int id, CancellationToken cancellation = default);
     void Add(TEntity entity);
     void AddMany(IReadOnlyCollection<TEntity> entities);
     void Update(TEntity entity);

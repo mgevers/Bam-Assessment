@@ -1,8 +1,9 @@
 ﻿using Ardalis.Result;
+using C = CSharpFunctionalExtensions;
 
 namespace Stargate.Core.Domain;
 
-public class Person
+public class Person : C.Entity<int>, IDataModel
 {
     private Person() { }
 
@@ -10,8 +11,6 @@ public class Person
     {
         Name = name;
     }
-
-    public int Id { get; private set; }
 
     public string Name { get; private set; } = string.Empty;
 

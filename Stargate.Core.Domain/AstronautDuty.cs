@@ -1,8 +1,9 @@
-﻿using Newtonsoft.Json;
+﻿using CSharpFunctionalExtensions;
+using Newtonsoft.Json;
 
 namespace Stargate.Core.Domain;
 
-public class AstronautDuty
+public class AstronautDuty : Entity<int>, IDataModel
 {
     public const string Retired = "RETIRED";
 
@@ -35,8 +36,6 @@ public class AstronautDuty
         DutyStartDate = dutyStartDate;
         DutyEndDate = dutyEndDate;
     }
-
-    public int Id { get; private set; }
 
     public int PersonId { get; private set; }
 
