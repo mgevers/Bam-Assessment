@@ -8,5 +8,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Ardalis.Result" />
+		<PackageReference Include="Newtonsoft.Json" />
 	</ItemGroup>
 </Project>

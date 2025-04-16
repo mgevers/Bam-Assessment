@@ -1,10 +1,25 @@
-﻿namespace Stargate.Core.Domain;
+﻿using Newtonsoft.Json;
+
+namespace Stargate.Core.Domain;
 
 public class AstronautDuty
 {
     public const string Retired = "RETIRED";
 
     private AstronautDuty() { }
+
+    public AstronautDuty(
+        Person person,
+        string rank,
+        string dutyTitle,
+        DateTime dutyStartDate)
+    {
+        Person = person;
+        PersonId = person.Id;
+        Rank = rank;
+        DutyTitle = dutyTitle;
+        DutyStartDate = dutyStartDate;
+    }
 
     public AstronautDuty(
         Person person,
@@ -33,5 +48,6 @@ public class AstronautDuty
 
     public DateTime? DutyEndDate { get; set; }
 
+    [JsonIgnore]
     public virtual Person Person { get; set; } = null!;
 }

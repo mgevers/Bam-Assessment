@@ -40,12 +40,6 @@ public class GetAstronautDutiesByPersonNameQueryHandler : IRequestHandler<GetAst
             .Map<Person, PersonWithDuties>(person =>
             {
                 var personDto = new PersonAstronaut(person);
-
-                foreach (var duty in person.AstronautDuties)
-                {
-                    duty.Person = null!;
-                }
-
                 return new PersonWithDuties(personDto, person.AstronautDuties);
             });
     }

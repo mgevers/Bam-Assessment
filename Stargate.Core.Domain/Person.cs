@@ -30,15 +30,14 @@ public class Person
                 return Result.Error("Cannot add a new duty after retirement.");
             }
 
-            lastDuty.DutyEndDate = dutyStartDate;
+            lastDuty.DutyEndDate = dutyStartDate.AddDays(-1);
         }
 
         var newDuty = new AstronautDuty(
             person: this,
             rank,
             dutyTitle,
-            dutyStartDate,
-            dutyEndDate: null);
+            dutyStartDate);
 
         AstronautDuties = [.. AstronautDuties, newDuty];
 
