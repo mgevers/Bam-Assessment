@@ -1,5 +1,6 @@
 ﻿using Ardalis.Result;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Stargate.Core.Contracts;
 using Stargate.Core.Domain;
 
@@ -18,17 +19,28 @@ public class CreateAstronautDutyCommand : IRequest<Result<int>>
 
 public class CreateAstronautDutyCommandHandler : IRequestHandler<CreateAstronautDutyCommand, Result<int>>
 {
+    private readonly ILogger<CreateAstronautDutyCommandHandler> _logger;
     private readonly IPersonRepository _repository;
-    public CreateAstronautDutyCommandHandler(IPersonRepository repository)
+
+    public CreateAstronautDutyCommandHandler(
+        ILogger<CreateAstronautDutyCommandHandler> logger,
+        IPersonRepository repository)
     {
+        _logger = logger;
         _repository = repository;
     }
+
     public async Task<Result<int>> Handle(CreateAstronautDutyCommand request, CancellationToken cancellationToken)
     {
         var personResult = await _repository.GetPersonByNameAsync(request.Name, cancellationToken);
-        
+
         if (!personResult.IsSuccess)
         {
+            _logger.LogError(
+                "Failed to commit transaction for creating person {Name}: {Error}",
+                request.Name,
+                string.Concat(personResult.Errors, ","));
+
             return personResult.AsTypedError<Person, int>();
         }
 
@@ -40,6 +52,10 @@ public class CreateAstronautDutyCommandHandler : IRequestHandler<CreateAstronaut
 
         if (!addDutyResult.IsSuccess)
         {
+            _logger.LogError(
+                "Failed to commit transaction for creating person {Name}: {Error}",
+                request.Name,
+                string.Concat(personResult.Errors, ","));
             return addDutyResult.AsTypedError<int>();
         }
 
@@ -47,9 +63,14 @@ public class CreateAstronautDutyCommandHandler : IRequestHandler<CreateAstronaut
 
         if (!commitResult.IsSuccess)
         {
+            _logger.LogError(
+                "Failed to commit transaction for creating person {Name}: {Error}",
+                request.Name,
+                string.Concat(personResult.Errors, ","));
             return commitResult.AsTypedError<int>();
         }
 
+        _logger.LogInformation("Created astronaut duty {duty}", person.AstronautDuties.Last());
         return Result.Success(person.AstronautDuties.Last().Id);
     }
 }

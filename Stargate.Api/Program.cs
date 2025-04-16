@@ -4,6 +4,8 @@ using Stargate.Api.Queries;
 using Stargate.Core.Commands;
 using Stargate.Persistence.Sql;
 using Stargate.Persistence.Sql.Options;
+using Stargate.Api.OpenTelemetry;
+using Serilog;
 
 namespace Stargate.Api
 {
@@ -12,6 +14,10 @@ namespace Stargate.Api
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder
+                .UseSerilog(logToConsole: true, logToOtel: true)
+                .ConfigureOpenTelemetry(serviceName: "stargate-api");
+
             ConfigureServices(builder.Services, builder.Configuration);
 
             var app = builder.Build();
@@ -40,6 +46,7 @@ namespace Stargate.Api
             });
 
             services
+                .AddLogging()
                 .AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
@@ -53,12 +60,15 @@ namespace Stargate.Api
 
         private static void ConfigureApplication(WebApplication app)
         {
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
-                app.UseSwagger();
-                app.UseSwaggerUI();
+                app
+                    .UseSwagger()
+                    .UseSwaggerUI();
             }
+
+            app.UseMiddleware<RequestLogContext>();
+            app.UseSerilogRequestLogging();
 
             app.UseHttpsRedirection();
             app.UseAuthorization();
