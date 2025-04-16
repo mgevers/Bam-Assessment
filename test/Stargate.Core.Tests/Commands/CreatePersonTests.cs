@@ -32,7 +32,7 @@ public class CreatePersonTests
     }
 
     [Fact]
-    public async Task AddPerson_WhenSaveFails_ReturnsErrorResult()
+    public async Task AddPerson_WhenSaveFails_ReturnsFailure()
     {
         var logger = GetLogger();
         var conflictMessage = "A Person with the name already exists";

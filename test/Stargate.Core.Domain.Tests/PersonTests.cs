@@ -108,7 +108,7 @@ public class PersonTests
         AssertExtensions.DeepEqual(duties, person.AstronautDuties);
     }
     [Fact]
-    public void AddingAstronautDuty_WhenAlreadyRetired_ReturnsFailureResult()
+    public void AddingAstronautDuty_WhenAlreadyRetired_ReturnsFailure()
     {
         var person = new Person("James Bond");
         var duties = new List<AstronautDuty>

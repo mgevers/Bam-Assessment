@@ -37,7 +37,7 @@ public class CreateAstronautDutyCommandHandler : IRequestHandler<CreateAstronaut
         if (!personResult.IsSuccess)
         {
             _logger.LogError(
-                "Failed to commit transaction for creating person {Name}: {Error}",
+                "Failed to retreive person with name {Name}: {Error}",
                 request.Name,
                 string.Join(",", personResult.Errors));
 
@@ -53,12 +53,13 @@ public class CreateAstronautDutyCommandHandler : IRequestHandler<CreateAstronaut
         if (!addDutyResult.IsSuccess)
         {
             _logger.LogError(
-                "Failed to commit transaction for creating person {Name}: {Error}",
+                "Failed to add astronaught duty for person {Name}: {Error}",
                 request.Name,
                 string.Join(",", addDutyResult.Errors));
             return addDutyResult.AsTypedError<int>();
         }
 
+        _repository.Update(person);
         var commitResult = await _repository.CommitTransaction(cancellationToken);
 
         if (!commitResult.IsSuccess)

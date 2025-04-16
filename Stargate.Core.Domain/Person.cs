@@ -1,4 +1,5 @@
 ﻿using Ardalis.Result;
+using Newtonsoft.Json;
 using C = CSharpFunctionalExtensions;
 
 namespace Stargate.Core.Domain;
@@ -59,5 +60,10 @@ public class Person : C.Entity<int>, IDataModel
         }
 
         return Result.Success();
+    }
+
+    public override string ToString()
+    {
+        return JsonConvert.SerializeObject(this);
     }
 }

@@ -7,6 +7,13 @@ public static class MockLoggerAssertExtensions
 {
     public static void AssertLogs<T>(this Mock<ILogger<T>> mockLogger, params LogEntry[] logs)
     {
+        var allLogs = mockLogger.Invocations
+            .Where(x => x.Method.Name == nameof(ILogger<T>.Log))
+            .Select(x => new LogEntry(
+                (LogLevel)x.Arguments[0],
+                x.Arguments[2]?.ToString() ?? string.Empty))
+            .ToArray();
+
         foreach (var logInfo in logs)
         {
             mockLogger.Verify(x => x.Log(

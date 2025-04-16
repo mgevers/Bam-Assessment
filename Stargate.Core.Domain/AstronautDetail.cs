@@ -1,4 +1,5 @@
 ﻿using CSharpFunctionalExtensions;
+using Newtonsoft.Json;
 
 namespace Stargate.Core.Domain;
 
@@ -30,4 +31,9 @@ public class AstronautDetail : Entity<int>, IDataModel
     public DateTime? CareerEndDate { get; set; }
 
     public virtual Person Person { get; private set; } = null!;
+
+    public override string ToString()
+    {
+        return JsonConvert.SerializeObject(this);
+    }
 }

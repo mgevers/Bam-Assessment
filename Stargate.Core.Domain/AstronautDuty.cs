@@ -49,4 +49,9 @@ public class AstronautDuty : Entity<int>, IDataModel
 
     [JsonIgnore]
     public virtual Person Person { get; set; } = null!;
+
+    public override string ToString()
+    {
+        return JsonConvert.SerializeObject(this);
+    }
 }
