@@ -1,7 +1,6 @@
 ﻿using Ardalis.Result;
 using Microsoft.Extensions.Logging;
 using Moq;
-using Newtonsoft.Json;
 using Stargate.Core.Commands;
 using Stargate.Core.Contracts;
 using Stargate.Core.Domain;

@@ -51,7 +51,6 @@ public class EFRepository<TEntity> : IRepository<TEntity>
     public void RemoveMany(IReadOnlyCollection<TEntity> entities)
     {
         dbContext.RemoveRange(entities);
-
     }
 
     public void Update(TEntity entity)

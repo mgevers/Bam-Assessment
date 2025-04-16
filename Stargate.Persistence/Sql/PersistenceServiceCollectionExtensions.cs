@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Stargate.Core.Contracts;
-using Stargate.Core.Domain;
 using Stargate.Persistence.Repositories;
 using Stargate.Persistence.Sql.Options;
 
