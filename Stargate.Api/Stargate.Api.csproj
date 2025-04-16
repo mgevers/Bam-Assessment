@@ -33,6 +33,7 @@
 		<PackageReference Include="Serilog.Sinks.OpenTelemetry" />
 		<PackageReference Include="Serilog.Sinks.Seq" />
 		<PackageReference Include="Swashbuckle.AspNetCore" />
+		<PackageReference Include="System.ClientModel" />
 	</ItemGroup>
 
 	<ItemGroup>
