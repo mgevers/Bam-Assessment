@@ -9,8 +9,6 @@ namespace Stargate.Persistence.Tests;
 
 public class PersonRepositoryTests
 {
-    private const string DbPath = "DataSource=C:\\Bam-Assessment\\sqlite\\monstersdatabase.db";
-
     [Fact]
     public async Task CrudTest()
     {
@@ -87,7 +85,7 @@ public class PersonRepositoryTests
         services
             .AddDbContextFactory<StargateDbContext>(options =>
             {
-                options.UseSqlite(DbPath);
+                options.UseSqlite("Data Source=starbase.db");
             })
             .AddDbContext<StargateDbContext>()
             .AddScopedAsAllImplementedInterfaces<PersonRepository>();

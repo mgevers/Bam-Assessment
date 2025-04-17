@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stargate.Core.Tests", "test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stargate.Persistence.Tests", "test\Stargate.Persistence.Tests\Stargate.Persistence.Tests.csproj", "{BF31D576-2BD2-44D6-8D15-53C335E5B6B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stargate.Api.Tests", "test\Stargate.Api.Tests\Stargate.Api.Tests.csproj", "{CEC2F601-D33C-4EF4-93BC-13769F2D87E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{BF31D576-2BD2-44D6-8D15-53C335E5B6B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF31D576-2BD2-44D6-8D15-53C335E5B6B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF31D576-2BD2-44D6-8D15-53C335E5B6B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC2F601-D33C-4EF4-93BC-13769F2D87E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC2F601-D33C-4EF4-93BC-13769F2D87E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC2F601-D33C-4EF4-93BC-13769F2D87E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC2F601-D33C-4EF4-93BC-13769F2D87E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{D2344D4C-CE1F-4FDD-A8A5-4C096CCDE34B} = {3F19376E-082C-4F93-A421-D7766B1365ED}
 		{9CE875F6-37C8-4B00-8097-9D6E90FAFD00} = {3F19376E-082C-4F93-A421-D7766B1365ED}
 		{BF31D576-2BD2-44D6-8D15-53C335E5B6B6} = {3F19376E-082C-4F93-A421-D7766B1365ED}
+		{CEC2F601-D33C-4EF4-93BC-13769F2D87E7} = {3F19376E-082C-4F93-A421-D7766B1365ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {039ED028-B37A-497D-8233-849DE3AEC974}

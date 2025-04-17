@@ -79,6 +79,7 @@ namespace Stargate.Api
         {
             using var dbContext = await dbContextFactory.CreateDbContextAsync();
 
+            await dbContext.Database.EnsureDeletedAsync();
             await dbContext.Database.EnsureCreatedAsync();
             await dbContext.Database.MigrateAsync();
         }
